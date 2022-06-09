@@ -8,30 +8,50 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
+    
+    private var spinnerView: UIActivityIndicatorView?
+    
     @IBOutlet var photoImage: UIImageView!
     @IBOutlet var factlabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getImage()
-        getFact()
+        spinnerView = showSpinner(in: photoImage)
+        getData()
     }
     
-    func getImage() {
+   private func showSpinner(in view: UIView)-> UIActivityIndicatorView {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.startAnimating()
+        indicator.center = view.center
+        indicator.hidesWhenStopped = true
+        
+        view.addSubview(indicator)
+        
+        return indicator
+    }
+    
+    private func getImage() {
         let url = UrlManager.shared.urlLink
         let image = ImageManager.shared.fetchImage(from: url )
         photoImage.image = UIImage(data: image!)
-        
+        spinnerView?.stopAnimating()
     }
    
-    func getFact() {
+    private func getFact() {
         NetworkManager.shared.fetchData { catFacts in
             DispatchQueue.main.async {
                 let fact = catFacts.randomElement()
                 self.factlabel.text = fact?.text ?? ""
             }
         }
+    }
+    
+    private func getData() {
+        getImage()
+        getFact()
+        spinnerView?.stopAnimating()
     }
 
 }
