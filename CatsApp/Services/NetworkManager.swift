@@ -6,16 +6,24 @@
 //
 
 import Foundation
+import Alamofire
+
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case decodingError
+}
+
 
 class NetworkManager {
     
     static let shared = NetworkManager()
     
+    let jsonUrl = "https://cat-fact.herokuapp.com/facts"
+    
     private init() {}
     
     func fetchData(_ completion: @escaping ([CatFact]) -> Void) {
-
-        let jsonUrl = "https://cat-fact.herokuapp.com/facts"
         guard let url = URL(string: jsonUrl) else { return }
 
         URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -30,8 +38,19 @@ class NetworkManager {
             }
         }.resume()
     }
-}
-
-
-
+     
+    func fetchDataWithAlamofire(_ completion: @escaping(CatFact) -> Void) {
+        AF.request(jsonUrl)
+            .validate()
+            .responseJSON { dataResponse in
+                
+                guard  let catFactsData = dataResponse.value as? [[String:Any]] else {return}
+                let catFact = CatFact(value: catFactsData.randomElement() ?? [:])
+                print(catFact)
+                completion(catFact)
+                }
+            }
+        
+    }
+                          
 

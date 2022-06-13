@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ResultViewController: UIViewController {
     
@@ -50,8 +51,16 @@ class ResultViewController: UIViewController {
     
     private func getData() {
         getImage()
-        getFact()
+        getFactWithAlamofire()
         spinnerView?.stopAnimating()
     }
-
+    
+    private func getFactWithAlamofire() {
+        NetworkManager.shared.fetchDataWithAlamofire { catFact in
+            DispatchQueue.main.async {
+                self.factlabel.text = catFact.text ?? "OOps something went wrong"
+            }
+            
+        }
+    }
 }

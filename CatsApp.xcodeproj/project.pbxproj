@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A90896A0B694305DF2B15C7 /* Pods_CatsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA52AF78825DC4924457C8A /* Pods_CatsApp.framework */; };
 		FEB054F82847FCC0001DF78D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB054F72847FCC0001DF78D /* AppDelegate.swift */; };
 		FEB054FA2847FCC0001DF78D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB054F92847FCC0001DF78D /* SceneDelegate.swift */; };
 		FEB054FC2847FCC0001DF78D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB054FB2847FCC0001DF78D /* SettingsViewController.swift */; };
@@ -21,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E476DF4BC0FAD0B1A8DC0EA /* Pods-CatsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatsApp.debug.xcconfig"; path = "Target Support Files/Pods-CatsApp/Pods-CatsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B3F354BCBD57FE2478B6FD6D /* Pods-CatsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatsApp.release.xcconfig"; path = "Target Support Files/Pods-CatsApp/Pods-CatsApp.release.xcconfig"; sourceTree = "<group>"; };
+		DEA52AF78825DC4924457C8A /* Pods_CatsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB054F42847FCC0001DF78D /* CatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB054F72847FCC0001DF78D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEB054F92847FCC0001DF78D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A90896A0B694305DF2B15C7 /* Pods_CatsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77D2165948728FA86B4F37E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E476DF4BC0FAD0B1A8DC0EA /* Pods-CatsApp.debug.xcconfig */,
+				B3F354BCBD57FE2478B6FD6D /* Pods-CatsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A2A1A42266C432DF7E269DA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEA52AF78825DC4924457C8A /* Pods_CatsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEB054EB2847FCC0001DF78D = {
 			isa = PBXGroup;
 			children = (
 				FEB054F62847FCC0001DF78D /* CatsApp */,
 				FEB054F52847FCC0001DF78D /* Products */,
+				77D2165948728FA86B4F37E7 /* Pods */,
+				A2A1A42266C432DF7E269DA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEB055082847FCC3001DF78D /* Build configuration list for PBXNativeTarget "CatsApp" */;
 			buildPhases = (
+				A68D3D36FCB3C625ECC4DA17 /* [CP] Check Pods Manifest.lock */,
 				FEB054F02847FCC0001DF78D /* Sources */,
 				FEB054F12847FCC0001DF78D /* Frameworks */,
 				FEB054F22847FCC0001DF78D /* Resources */,
+				781F3D4AA1BC0B71F8DDB6AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +221,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		781F3D4AA1BC0B71F8DDB6AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatsApp/Pods-CatsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatsApp/Pods-CatsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CatsApp/Pods-CatsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A68D3D36FCB3C625ECC4DA17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CatsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FEB054F02847FCC0001DF78D /* Sources */ = {
@@ -352,6 +420,7 @@
 		};
 		FEB055092847FCC3001DF78D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E476DF4BC0FAD0B1A8DC0EA /* Pods-CatsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -365,6 +434,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +450,7 @@
 		};
 		FEB0550A2847FCC3001DF78D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3F354BCBD57FE2478B6FD6D /* Pods-CatsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -393,6 +464,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

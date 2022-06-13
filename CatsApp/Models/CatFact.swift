@@ -13,11 +13,32 @@ struct CatFact: Decodable {
     let v: Int?
     let source, updatedAt, type, createdAt: String?
     let deleted, used: Bool?
+    
+    init(value: [String:Any]) {
+        let statusDict = value["status"] as? [String:Any] ?? [:]
+        status = Status(value: statusDict)
+        
+        id = value["id"] as? String
+        user = value["user"] as? String
+        text = value["text"] as? String
+        v = value["v"] as? Int
+        source = value["source"] as? String
+        updatedAt = value["updatedAt"] as? String
+        type = value["type"] as? String
+        createdAt = value["createdAt"] as? String
+        deleted = value["deleted"] as? Bool
+        used = value["used"] as? Bool
+    }
 }
 
 struct Status: Decodable {
     let verified: Bool?
     let sentCount: Int?
+    
+    init(value: [String:Any]) {
+        verified = value["verified"] as? Bool
+        sentCount = value["sentCount"] as? Int
+    }
 }
 
 
